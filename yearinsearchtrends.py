@@ -64,6 +64,7 @@ def draw_ridgeplot(
     reflinewidth=2,
     plotlinewidth=2.5,
     font="DejaVu Sans",
+    indent=70,
 ):
     """
     Plots overlapping ridgeplot heavily inspired by
@@ -111,7 +112,7 @@ def draw_ridgeplot(
         ylabel="",
         xlabel="",
         xlim=[
-            df_longform["date"].min() - datetime.timedelta(days=70),
+            df_longform["date"].min() - datetime.timedelta(days=indent),
             df_longform["date"].max(),
         ],
         xticks=[
