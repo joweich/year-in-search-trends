@@ -18,11 +18,11 @@ pip install -r requirements.txt
 ```python
 import yearinsearchtrends as yist
 
-keywords = ["happening1", "happening2"]
+keywords = ["Weather Forecast", "TV Program"]
 df = yist.get_interest_over_time(
-    keywords, "2022-01-01 2023-01-01", geo="DE"
+    keywords, "2022-01-01 2023-01-01"
 )
-yist.ridgeplot(df)
+yist.draw_ridgeplot(df)
 ```
 
 ## Data source
