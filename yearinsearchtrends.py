@@ -76,6 +76,9 @@ def draw_ridgeplot(
     plt.rcParams["xtick.labelsize"] = 14
     plt.rcParams["font.family"] = [font]
 
+    idx = df_longform.groupby("Keyword")["Interest"].idxmax()
+    row_order = df_longform.loc[idx].sort_values("date")["Keyword"].tolist()
+
     g = sns.FacetGrid(
         df_longform,
         row="Keyword",
@@ -83,6 +86,7 @@ def draw_ridgeplot(
         aspect=aspect,
         height=height,
         palette=palette,
+        row_order=row_order,
     )
 
     def label(x, color, label):
