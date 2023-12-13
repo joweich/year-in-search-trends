@@ -43,7 +43,8 @@ def get_interest_over_time(
     for chunk in chunks:
         pytrends.build_payload(chunk, cat=cat, geo=geo, timeframe=timeframe)
         df_chunk = pytrends.interest_over_time()
-        df_chunk = df_chunk.drop("isPartial", axis=1)
+        if "isPartial" in df_chunk.columns:
+            df_chunk = df_chunk.drop("isPartial", axis=1)
         df = pd.merge(df, df_chunk, how="right", on="date")
     df = df.set_index("date")
 
