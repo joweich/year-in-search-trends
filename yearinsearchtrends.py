@@ -88,6 +88,7 @@ def draw_ridgeplot(
         height=height,
         palette=palette,
         row_order=row_order,
+        hue_order=row_order,
     )
 
     def label(x, color, label):
